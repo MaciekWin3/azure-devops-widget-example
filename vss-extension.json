@@ -1,0 +1,55 @@
+{
+  "manifestVersion": 1,
+  "id": "azure-devops-widget-example",
+  "version": "1.0.0",
+  "name": "Azure DevOps widget example",
+  "description": "Example of custom Azure DevOps widget",
+  "publisher": "your-publisher",
+  "categories": ["Azure Boards"],
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "icons": {
+    "default": "img/logo.png"
+  },
+  "contributions": [
+    {
+      "id": "azure-devops-widget-example",
+      "type": "ms.vss-dashboards-web.widget",
+      "targets": [
+        "ms.vss-dashboards-web.widget-catalog",
+        ".sample-widget.config"
+      ],
+      "properties": {
+        "name": "Sample widget",
+        "description": "Shows current pipeline status",
+        "catalogIconUrl": "logo.png",
+        "uri": "index.html",
+        "isNameConfigurable": true,
+        "supportedSizes": [{ "rowSpan": 1, "columnSpan": 1 }],
+        "supportedScopes": ["project_team"]
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "index.html",
+      "addressable": true
+    },
+    {
+      "path": "styles.css",
+      "addressable": true
+    },
+    {
+      "path": "dist",
+      "addressable": true
+    },
+    {
+      "path": "img",
+      "addressable": true
+    }
+  ],
+  "scopes": ["vso.build"]
+}
