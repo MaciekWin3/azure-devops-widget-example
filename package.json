@@ -1,6 +1,18 @@
 {
   "name": "azure-devops-blazor-extension",
   "module": "index.js",
+  "author": "Maciej Winnik",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/MaciekWin3/azure-devops-widget-example"
+  },
+  "scripts": {
+    "clean": "rimraf ./dist ./out",
+    "compile": "npm run clean && webpack --mode production",
+    "package": "npm run compile && tfx extension create --manifest-globs vss-extension.json",
+    "publish": "npm run compile && tfx extension publish --manifest-globs vss-extension.json"
+  },
   "devDependencies": {
     "@babel/core": "^7.24.5",
     "@babel/preset-env": "^7.24.5",
@@ -10,6 +22,7 @@
   },
   "dependencies": {
     "azure-devops-extension-api": "^4.237.0",
-    "azure-devops-extension-sdk": "^4.0.2"
+    "azure-devops-extension-sdk": "^4.0.2",
+    "rimraf": "^5.0.1"
   }
 }

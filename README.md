@@ -13,6 +13,21 @@ Developing any sort of extension for Azure DevOps can be challenging. There is a
 - [azure-devops-extension-sdk](https://github.com/microsoft/azure-devops-extension-sdk)
 - [azure-devops-extension-api](https://github.com/microsoft/azure-devops-extension-api)
 
+## Build 🔨
+
+To bulid extension you can use build command that are located in `package.json` file:
+
+```json
+"scripts": {
+    "clean": "rimraf ./dist ./out",
+    "compile": "npm run clean && webpack --mode production",
+    "package": "npm run compile && tfx extension create --manifest-globs vss-extension.json",
+    "publish": "npm run compile && tfx extension publish --manifest-globs vss-extension.json"
+}
+```
+
+Feel free to modify configuration files (`package.json`, `vss-extension.json` ,`webpack.config.js`) to suit your needs.
+
 ## Usefull resources 📚
 
 - [Add a dashboard widget](https://learn.microsoft.com/en-us/azure/devops/extend/develop/add-dashboard-widget?view=azure-devops)
